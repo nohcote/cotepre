@@ -5,15 +5,11 @@ from collections import Counter
 n = int(sys.stdin.readline().rstrip())
 for _ in range(n):
     temparr = list(map(int, sys.stdin.readline().rstrip().split()))
-    temparr2 = temparr[1:]
-    tempkeys = list(dict.fromkeys(temparr2))
-    tempcounter = Counter(temparr2)
-    tempbool = False
-
+    tempkeys = list(dict.fromkeys(temparr[1:]))
+    tempcounter = Counter(temparr[1:])
+    tempstr = "SYJKGW"
     for t in tempkeys:
         if tempcounter[t] > temparr[0]/2:
-            print(t)
-            tempbool = True
+            tempstr = t
             break
-    if not tempbool:
-        print("SYJKGW")
+    print(tempstr)
