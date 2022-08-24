@@ -1,5 +1,5 @@
-from itertools import combinations
+from math import comb
 
 
-a, b = map(int, input().split())
-print(len(list(combinations(range(1, a+1), b))))
+N, K = map(int, input().split())
+print(comb(N, K))
