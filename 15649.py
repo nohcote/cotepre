@@ -1,8 +1,21 @@
 import sys
-from itertools import permutations
+from collections import deque
 
 
-a, b = map(int, sys.stdin.readline().split())
-for e1 in permutations(range(1, a+1), b):
-    [print(e2, end=" ") for e2 in e1]
-    print()
+N, M = map(int, sys.stdin.readline().split())
+arr = deque()
+
+def dfs():
+    if len(arr) == M:
+        [print(e, end=" ") for e in arr]
+        print()
+        return
+    else:
+        for i in range(1, N+1):
+            if i not in arr:
+                arr.append(i)
+                dfs()
+                arr.pop()
+
+
+dfs()
